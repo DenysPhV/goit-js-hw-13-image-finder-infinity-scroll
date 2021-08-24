@@ -1,0 +1,143 @@
+html {
+  box-sizing: border-box;
+  overflow: auto;
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: 'Noto Sans JP', sans-serif;
+
+  background-image: url(../images/rip_jobs.png);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+img {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1300px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.footer {
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  margin-bottom: 20px;
+}
+
+.btn {
+  padding: 5px 10px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background-color: rgb(1, 204, 255);
+  color: #ffffff;
+
+  cursor: pointer;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.search-input {
+  padding: 5px 10px;
+
+  margin-right: 10px;
+  min-width: 300px;
+
+  border: 1px solid rgba(173, 172, 172, 0.753);
+  border-radius: 5px;
+}
+
+.search-input:hover,
+.search-input:focus {
+  border: 1px solid rgba(130, 130, 248, 0.753);
+}
+
+.gallery {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-gap: 7px;
+
+  list-style: none;
+  margin: 10px 0;
+  padding: 0;
+}
+
+.gallery-image {
+  object-fit: cover;
+  width: 100%;
+}
+
+.gallery-item {
+  box-shadow: 4px 4px 8px -2px rgba(130, 130, 248, 0.2);
+  transform: scale(1);
+  transition: 0.3s ease-in-out;
+}
+
+.gallery-item:hover {
+  transform: scale(0.98);
+}
+
+.photo-card {
+  background: #ffffff;
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 8px;
+}
+
+.stats-item {
+  display: flex;
+  align-items: center;
+
+  font-weight: 800;
+}
+
+.stats-item > i {
+  margin-right: 10px;
+
+  color: rgba(136, 136, 173, 0.753);
+}
+
+.btn-load {
+  display: block;
+  margin: 0 auto;
+}
+
+.btn-load.hide {
+  opacity: 0;
+  display: none;
+}
+
+.basicLightbox {
+  transition: opacity 0.4s cubic-bezier(0.39, 0.58, 0.57, 1);
+}
+
+.basicLightbox img {
+  object-fit: cover;
+}
