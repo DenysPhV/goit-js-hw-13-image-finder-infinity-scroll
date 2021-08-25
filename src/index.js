@@ -27,19 +27,24 @@ function onInputChange(event) {
       });
     } else {
       appendImagesMarkup(data);
-      refs.loadMoreBtn.classList.remove('hide');
     }
   });
 }
 // переписать на  бесконечный скролл
-function onMoreLoad(event) {
-  apiService
-    .fetchImage()
-    .then(appendImagesMarkup)
-    .then(() => {
-      scrollGallery();
-    });
-}
+// Доделать логику что бы картинки подгружались
+const onEntry = entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      console.log('Покажи дальше');
+      apiService.fetchImage().then(appendImagesMarkup);
+    }
+  });
+};
+const options = {
+  rootMargin: '100px',
+};
+const observer = new IntersectionObserver(onEntry, options);
+observer.observe(refs.footer);
 
 function onImageClick(event) {
   const imageItem = event.target;
@@ -66,15 +71,5 @@ function clearGallery() {
   refs.loadMoreBtn.classList.add('hide');
 }
 
-function scrollGallery() {
-  refs.loadMoreBtn.scrollIntoView({
-    top: refs.galleryList.scrollHeight,
-    behavior: 'smooth',
-
-    // block: 'end',
-  });
-}
-
 refs.formInput.addEventListener('submit', onInputChange);
-refs.loadMoreBtn.addEventListener('click', onMoreLoad);
 refs.galleryList.addEventListener('click', onImageClick);
